@@ -1,0 +1,15 @@
+#include <Stepper.h>
+const int apr =40;
+Stepper steper(apr, 8, 9, 10, 11);
+void setup()
+{
+steper.setSpeed(10);
+Serial.begin(9600);
+}
+void loop()
+{
+steper.step(apr);
+delay(1000);
+steper.step(-apr);
+delay(1000);
+}
