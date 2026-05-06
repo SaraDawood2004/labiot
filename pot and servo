@@ -1,0 +1,14 @@
+#include <Servo.h>
+Servo myservo;
+void setup()
+{
+myservo.attach(5);
+Serial.begin(9600);
+pinMode(A0,INPUT);
+}
+void loop()
+{
+int data=analogRead(A0);
+int mydata=map(data,0,1023,0,180); 
+myservo.write(mydata);
+}
