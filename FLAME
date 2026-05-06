@@ -1,0 +1,32 @@
+#include <LiquidCrystal.h> 
+LiquidCrystal lcd(13, 12, 11, 10, 9, 8);
+const int SensorPin = 2;
+const int LEDPin = 7;
+void setup()
+{
+pinMode(SensorPin, INPUT); 
+pinMode(LEDPin, OUTPUT); 
+lcd.begin(20, 4); 
+lcd.setCursor(0,0);
+lcd.print(" THE BRIGHT LIGHT ");
+lcd.setCursor(0,1);
+lcd.print(" FIRE DETECTION SYS");}
+void loop(){
+if(digitalRead(SensorPin) == HIGH){
+digitalWrite(LEDPin,HIGH);
+lcd.setCursor(0,3);
+lcd.print(" Fire Detected ");
+delay(70);
+lcd.setCursor(0,3);
+lcd.print(" Fire Detected. ");
+delay(70);
+lcd.setCursor(0,3);
+lcd.print(" Fire Detected.. ");
+delay(70);
+lcd.setCursor(0,3);
+lcd.print(" Fire Detected... ");
+delay(70);}
+else{
+digitalWrite(LEDPin,LOW);
+lcd.setCursor(0,3);
+lcd.print(" No Fire ");}}
